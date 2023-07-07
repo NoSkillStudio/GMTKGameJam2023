@@ -1,24 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerCollision : MonoBehaviour
 {
-	private void Start()
-	{
-		
-	}
+    [SerializeField] private UnityEvent OnCollidedApp;
 
-	private void Update()
-	{
-		
-	}
+    private App currentApp;
 
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.gameObject.TryGetComponent(out App app))
-		{
-            collision.transform.SetParent(transform, true);
+
+    private void Start()
+    {
+
+    }
+
+    private void Update()
+    {
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out App app))
+        {
+            currentApp = collision.gameObject.GetComponent<App>();
+            currentApp.transform.SetParent(transform, true);
+
+            OnCollidedApp.Invoke();
         }
+    }
+
+    public void OpenApp()
+    { 
+        currentApp.Open();
     }
 }
