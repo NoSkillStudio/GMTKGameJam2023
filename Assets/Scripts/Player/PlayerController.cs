@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _renderer;
     private Vector2 _axis;
     private Rigidbody2D _rb;
-    private bool isFasingRight = true;
 
     private void Start()
     {
@@ -25,21 +24,15 @@ public class PlayerController : MonoBehaviour
         _axis.x = Input.GetAxisRaw("Horizontal");
         _axis.y = Input.GetAxisRaw("Vertical");
 
-        if ((_axis.x > 0 && !isFasingRight) || (_axis.x < 0 && isFasingRight))
-        {
-            Turn();
-        }
-    }
-
-    private void Turn()
-    {
-        isFasingRight = !isFasingRight;
-        transform.Rotate(0, 180, 0);
+        if (_axis.x < 0)
+            _renderer.flipX = false;
+        else if (_axis.x < 0)
+            _renderer.flipX = true;
     }
 
     private void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + _axis * _speed * Time.fixedDeltaTime); // axis от -1, до 1, нет смысла его нормализовать
+        _rb.MovePosition(_rb.position + _axis * _speed * Time.fixedDeltaTime);
     }
 
     private void CheckBoundaries()
