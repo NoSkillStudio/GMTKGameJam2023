@@ -1,3 +1,4 @@
+using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,10 +14,16 @@ public class App : MonoBehaviour
 
 	[SerializeField] private UnityEvent OnDestroy;
 
+	public Vector3 SpawnPoint { get => spawnPoint; }
+	private Vector3 spawnPoint;
+
     private void Start()
     {
         spawner = FindObjectOfType<WindowSpawner>();
         objectScore = GetComponent<ObjectScore>();
+
+		spawnPoint = transform.position;
+		Debug.Log(spawnPoint);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

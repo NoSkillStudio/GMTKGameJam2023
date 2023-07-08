@@ -49,4 +49,9 @@ public class CursorRunningState : CursorBaseState
     {
         return new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), 0).normalized * 1000000;
     }
+
+    public override void EnterState(CursorStateManager manager, App transform)
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
 
     private Animator animator;
+    private Vector2 screenBounds;
+
+    [SerializeField] private float offset;
 
     private void Start()
     {
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
         _speed = _startSpeed;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
     private void Update()
@@ -37,6 +41,8 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = false;
 
         animator.SetFloat("AxisX", Mathf.Abs(_axis.x));
+        if(Mathf.Abs(_axis.x) == 0)
+        animator.SetFloat("AxisX", Mathf.Abs(_axis.y));
     }
 
     private void FixedUpdate()
@@ -46,24 +52,23 @@ public class PlayerController : MonoBehaviour
 
     private void CheckBoundaries()
     {
-        Vector2 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
-        if (transform.position.x < -screenBounds.x)
+        if (transform.position.x < -screenBounds.x + offset)
         {
-            transform.position = new Vector2(-screenBounds.x, transform.position.y);
+            transform.position = new Vector2(-screenBounds.x + offset, transform.position.y);
         }
-        else if (transform.position.x > screenBounds.x)
+        else if (transform.position.x > screenBounds.x - offset)
         {
-            transform.position = new Vector2(screenBounds.x, transform.position.y);
+            transform.position = new Vector2(screenBounds.x - offset, transform.position.y);
         }
 
-        if (transform.position.y < -screenBounds.y)
+        if (transform.position.y < -screenBounds.y + offset)
         {
-            transform.position = new Vector2(transform.position.x, -screenBounds.y);
+            transform.position = new Vector2(transform.position.x, -screenBounds.y + offset);
         }
-        else if (transform.position.y > screenBounds.y)
+        else if (transform.position.y > screenBounds.y - offset)
         {
-            transform.position = new Vector2(transform.position.x, screenBounds.y);
+            transform.position = new Vector2(transform.position.x, screenBounds.y - offset);
         }
     }
     public void StopSpeed() => _speed = 0;
