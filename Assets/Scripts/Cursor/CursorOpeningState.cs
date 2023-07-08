@@ -14,6 +14,7 @@ public class CursorOpeningState : CursorBaseState
         {
             manager.SwitchToState(ScriptableObject.CreateInstance<CursorIdleState>());
         }
+        clickSound = manager.GetComponent<AudioSource>();
     }
 
     public override void UpdateState(CursorStateManager manager)
@@ -35,6 +36,7 @@ public class CursorOpeningState : CursorBaseState
 
         if (Vector3.Distance(manager.cursorTransform.position, target.transform.position) <= 0.25f)
         {
+            clickSound.Play();
             target.Open();
             if (target.window == WindowSpawner.Window.Explorer/* && Random.Range(0, 2) == 0*/)
             {
