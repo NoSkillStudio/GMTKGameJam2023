@@ -10,7 +10,6 @@ public class PlayerCollision : MonoBehaviour
     private App currentApp;
     private float offset = 1.25f;
     private float x = 0f;
-    private bool canPick;
 
     private void Start()
     {
@@ -30,7 +29,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out App app))
+        if (collision.gameObject.TryGetComponent(out App app) && isGrabbed == false)
         {
             currentApp = app;
 
@@ -59,4 +58,6 @@ public class PlayerCollision : MonoBehaviour
     {
         isGrabbed = true;
     }
+
+    public void DontGrab() => isGrabbed = false;
 }
