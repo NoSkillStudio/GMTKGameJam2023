@@ -29,7 +29,6 @@ public class WindowSpawner : MonoBehaviour
         int idx = (int) window;
         // Add icon to taskbar
         GameObject icon = Instantiate(icons[idx], taskbar.transform);
-        // icon.transform.localScale = new Vector3(40, 40, 1);
         // Spawn window
         GameObject window_ = Instantiate(windows[idx], openedWindows.transform);
     }
