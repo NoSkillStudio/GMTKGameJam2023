@@ -9,16 +9,20 @@ public class App : MonoBehaviour
 
 	[SerializeField] private GameObject contextMenu;
 
+    private ObjectScore objectScore;
+
     private void Start()
     {
         spawner = FindObjectOfType<WindowSpawner>();
+        objectScore = GetComponent<ObjectScore>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.TryGetComponent(out Trash trash))
 		{ 
-			Destroy(gameObject);
+			objectScore.Activate();
+			Destroy(gameObject, 0.1f);
 		}
 	}
 
