@@ -10,7 +10,11 @@ public class CursorOpeningState : CursorBaseState
     public override void EnterState(CursorStateManager manager)
     {
         apps = Object.FindObjectsOfType<App>();
-        target = Utilities.Choice<App>(apps);
+        target = Choice(apps);
+        if (target == null)
+        {
+            manager.SwitchToState(ScriptableObject.CreateInstance<CursorIdleState>());
+        }
     }
 
     public override void UpdateState(CursorStateManager manager)
@@ -38,4 +42,17 @@ public class CursorOpeningState : CursorBaseState
     }
 
     public override void ExitState(CursorStateManager manager) {}
+
+    private App Choice(App[] apps)
+    {
+        try
+        {
+            int idx = Random.Range(0, apps.Length);
+            return apps[idx];
+        }
+        catch
+        {
+            return null;
+        }
+    }
 }
