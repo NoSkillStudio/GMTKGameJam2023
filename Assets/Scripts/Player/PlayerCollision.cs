@@ -10,7 +10,6 @@ public class PlayerCollision : MonoBehaviour
     private PlayerController player;
     private App currentApp;
     private float offset = 1.25f;
-    private float x = 0f;
 
     private void Start()
     {

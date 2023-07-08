@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class App : MonoBehaviour
 {
 	[SerializeField] private UnityEvent OnOpen;
-	[SerializeField] private WindowSpawner.Window window;
+	public WindowSpawner.Window window { get; }
 	private WindowSpawner spawner;
 
 	[SerializeField] private GameObject contextMenu;

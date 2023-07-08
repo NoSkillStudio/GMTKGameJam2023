@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CursorOpeningState : CursorBaseState
@@ -37,6 +36,12 @@ public class CursorOpeningState : CursorBaseState
         if (Vector3.Distance(manager.cursorTransform.position, target.transform.position) <= 0.25f)
         {
             target.Open();
+            if (target.window == WindowSpawner.Window.Explorer && Random.Range(0, 2) == 0)
+            {
+                Explorer explorer = target.GetComponent<Explorer>();
+                explorer.StartSearch();
+            }
+
             manager.SwitchToState(ScriptableObject.CreateInstance<CursorIdleState>());
         }
     }
