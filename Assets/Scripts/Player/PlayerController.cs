@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))] // если на игроке нет Rigidbody2D, скрипт добавит
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float _stunTime = 3f;
     private float _speed;
 
     [SerializeField] private float _startSpeed;
@@ -68,4 +69,10 @@ public class PlayerController : MonoBehaviour
     public void StopSpeed() => _speed = 0;
 
     public void SetNormalSpeed() => _speed = _startSpeed;
+
+    public void Stun()
+    {
+        StopSpeed();
+        Invoke(nameof(SetNormalSpeed), _stunTime);
+    }
 }

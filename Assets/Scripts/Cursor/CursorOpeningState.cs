@@ -15,11 +15,20 @@ public class CursorOpeningState : CursorBaseState
 
     public override void UpdateState(CursorStateManager manager)
     {
-        manager.SetPos(Vector2.MoveTowards(
-            manager.cursor.transform.position,
-            target.transform.position,
-            speed * Time.deltaTime
-        ));
+        try
+        {
+            manager.SetPos(Vector2.MoveTowards(
+                manager.cursor.transform.position,
+                target.transform.position,
+                speed * Time.deltaTime
+            ));
+        }
+        catch
+        {
+            // утка выбросила в корзину приложение
+            manager.SwitchToState(ScriptableObject.CreateInstance<CursorAgroState>());
+            return;
+        }
 
         if (Vector3.Distance(manager.cursorTransform.position, target.transform.position) <= 0.25f)
         {

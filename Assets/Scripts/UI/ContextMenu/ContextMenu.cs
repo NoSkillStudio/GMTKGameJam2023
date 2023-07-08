@@ -50,7 +50,6 @@ public class ContextMenu : MonoBehaviour
         {
             choices[previousChoice].Exit();
             choices[choice].Enter();
-            Debug.Log("Enter");
             previousChoice = choice;
         }
     }

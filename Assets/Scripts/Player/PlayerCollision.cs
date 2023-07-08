@@ -5,7 +5,8 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnTriggerEnterApp;
     [SerializeField] private UnityEvent OnTriggerExitApp;
-    private bool isGrabbed;
+    private CursorStateManager manager;
+    public bool isGrabbed { get; private set; }
     private PlayerController player;
     private App currentApp;
     private float offset = 1.25f;
@@ -15,16 +16,27 @@ public class PlayerCollision : MonoBehaviour
     private void Start()
     {
         player = GetComponent<PlayerController>();
+        manager = FindObjectOfType<CursorStateManager>();
     }
 
     private void Update()
     {
-        if (isGrabbed)
+        try
         {
-            if (player.spriteRenderer.flipX)
-                currentApp.transform.position = transform.position - Vector3.right * offset;
-            else
-                currentApp.transform.position = transform.position + Vector3.right * offset;
+            if (isGrabbed)
+            {
+                if (player.spriteRenderer.flipX)
+                    currentApp.transform.position = transform.position - Vector3.right * offset;
+                else
+                    currentApp.transform.position = transform.position + Vector3.right * offset;
+            }
+        }
+        catch (MissingReferenceException)
+        {
+            // утка выбросила в корзину приложение
+            isGrabbed = false;
+            currentApp = null;
+            manager.SwitchToState(ScriptableObject.CreateInstance<CursorAgroState>());
         }
     }
 
@@ -57,6 +69,7 @@ public class PlayerCollision : MonoBehaviour
 
     public void Grab()
     {
+        manager.SwitchToState(ScriptableObject.CreateInstance<CursorAgroState>());
         isGrabbed = true;
     }
 }

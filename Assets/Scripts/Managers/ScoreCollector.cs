@@ -9,8 +9,6 @@ public class ScoreCollector : MonoBehaviour
 	[SerializeField] private UnityEvent<int> ScoreChanged;
 	public static int scoreCollected;
 
-	
-
 	private void Awake()
 	{
 		scoreCollected = 0;
@@ -29,7 +27,5 @@ public class ScoreCollector : MonoBehaviour
 	{
 		scoreCollected += value;
 		ScoreChanged.Invoke(scoreCollected);
-		Debug.Log("Score");
 	}
-
 }

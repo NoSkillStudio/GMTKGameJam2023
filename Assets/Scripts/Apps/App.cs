@@ -19,7 +19,6 @@ public class App : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
-			Debug.Log("Score");
 		if (collision.gameObject.TryGetComponent(out Trash trash))
 		{ 
 			objectScore.Activate();
