@@ -344,7 +344,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1813450605}
         m_TargetAssemblyTypeName: UIEffectSettings, Assembly-CSharp
         m_MethodName: SliderEffect
         m_Mode: 1
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1813450605}
         m_TargetAssemblyTypeName: UIEffectSettings, Assembly-CSharp
         m_MethodName: ToggleEffect
         m_Mode: 1
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1813450606}
         m_TargetAssemblyTypeName: UISMusicSettings, Assembly-CSharp
         m_MethodName: SliderMusic
         m_Mode: 1
@@ -2571,7 +2571,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1813450606}
         m_TargetAssemblyTypeName: UISMusicSettings, Assembly-CSharp
         m_MethodName: ToggleMusic
         m_Mode: 1
@@ -2856,7 +2856,7 @@ AudioSource:
   m_GameObject: {fileID: 1813450600}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 2895241982451650045, guid: 88a31f77e761c9c4c8af7ee36a095388, type: 2}
+  OutputAudioMixerGroup: {fileID: 8750239326948277599, guid: 09a48ffdb04b9fb4c9f8ee40b629e9ae, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2040898195a836246bdf65869ca6f595, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2982,7 +2982,7 @@ AudioSource:
   m_GameObject: {fileID: 1813450600}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9211282076717082546, guid: bc1b03be8e89f6d4da5110fd22329a95, type: 2}
   m_audioClip: {fileID: 8300000, guid: 280c8ae2c1d73f448a5900e734d39c8c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
