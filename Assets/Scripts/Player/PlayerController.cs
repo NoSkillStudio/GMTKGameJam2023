@@ -7,10 +7,9 @@ public class PlayerController : MonoBehaviour
     private float _speed;
 
     [SerializeField] private float _startSpeed;
-    private SpriteRenderer _renderer;
-    private Vector2 _axis;
+    public SpriteRenderer spriteRenderer { get; private set; }
+    public Vector2 _axis;
     private Rigidbody2D _rb;
-    private bool isFasingRight = true;
 
     private Animator animator;
 
@@ -18,33 +17,30 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _speed = _startSpeed;
-        _renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         CheckBoundaries();
-        _axis.x = Input.GetAxisRaw("Horizontal");
-        _axis.y = Input.GetAxisRaw("Vertical");
+
+        _axis = new Vector2(
+            Input.GetAxisRaw("Horizontal"),
+            Input.GetAxisRaw("Vertical")
+        );
+
+        if (_axis.x == -1)
+            spriteRenderer.flipX = true;
+        else if (_axis.x == 1)
+            spriteRenderer.flipX = false;
 
         animator.SetFloat("AxisX", Mathf.Abs(_axis.x));
-
-        if ((_axis.x > 0 && !isFasingRight) || (_axis.x < 0 && isFasingRight))
-        {
-            Turn();
-        }
     }
 
     private void FixedUpdate()
     {
         _rb.MovePosition(_rb.position + _axis * _speed * Time.fixedDeltaTime);
-    }
-
-    private void Turn()
-    {
-        isFasingRight = !isFasingRight;
-        transform.Rotate(0, 180, 0);
     }
 
     private void CheckBoundaries()

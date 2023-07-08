@@ -5,15 +5,25 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnTriggerEnterApp;
     [SerializeField] private UnityEvent OnTriggerExitApp;
-
+    private bool isGrabbed;
+    private PlayerController player;
     private App currentApp;
-    private Vector3 offset = Vector3.zero;
+    private float offset = 1.25f;
+    private float x = 0f;
 
     private void Start()
     {
-        if (currentApp != null)
+        player = GetComponent<PlayerController>();
+    }
+
+    private void Update()
+    {
+        if (isGrabbed)
         {
-            currentApp.transform.position = transform.position + offset;
+            if (player.spriteRenderer.flipX)
+                currentApp.transform.position = transform.position - Vector3.right * offset;
+            else
+                currentApp.transform.position = transform.position + Vector3.right * offset;
         }
     }
 
@@ -22,7 +32,6 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out App app))
         {
             currentApp = app;
-            offset = transform.position - currentApp.transform.position;
 
             currentApp.ShowContextMenu();
 
@@ -47,7 +56,6 @@ public class PlayerCollision : MonoBehaviour
 
     public void Grab()
     {
-        currentApp.transform.SetParent(transform, true);
+        isGrabbed = true;
     }
-
 }

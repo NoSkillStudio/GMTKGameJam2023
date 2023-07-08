@@ -35,7 +35,6 @@ public class CursorRunningState : CursorBaseState
 
         if (totalTime >= 7f)
         {
-            Debug.Log("Switch");
             manager.SwitchToState(ScriptableObject.CreateInstance<CursorOpeningState>());
         }
     }

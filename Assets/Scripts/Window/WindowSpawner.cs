@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WindowSpawner : MonoBehaviour
 {
@@ -15,20 +13,24 @@ public class WindowSpawner : MonoBehaviour
     private Canvas canvas;
     private GameObject taskbar;
     private GameObject openedWindows;
+    private bool[] isSpawned = {false, false};
 
     private void Start()
     {
         canvas = FindObjectOfType<Canvas>();
         taskbar = GameObject.FindWithTag("Windows");
         openedWindows = GameObject.FindWithTag("OpenedWindows");
-        //OpenWindow(Window.Explorer);
     }
 
     public void OpenWindow(Window window)
     {
         int idx = (int) window;
+        if (isSpawned[idx]) return;
+        isSpawned[idx] = true;
+
         // Add icon to taskbar
         GameObject icon = Instantiate(icons[idx], taskbar.transform);
+
         // Spawn window
         GameObject window_ = Instantiate(windows[idx], openedWindows.transform);
     }
