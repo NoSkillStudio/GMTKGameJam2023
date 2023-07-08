@@ -23,12 +23,17 @@ public class CursorAgroState : CursorBaseState
         if (Vector3.Distance(manager.cursorTransform.position, player.transform.position) <= 0.5f)
         {
             playerController.Stun();
-            manager.SwitchToState(ScriptableObject.CreateInstance<CursorRunningState>());
+            manager.SwitchToState(ScriptableObject.CreateInstance<CursorFindingNearestAppState>());
         }
     }
 
     public override void ExitState(CursorStateManager manager)
     {
 
+    }
+
+    public override void EnterState(CursorStateManager manager, App transform)
+    {
+        throw new System.NotImplementedException();
     }
 }

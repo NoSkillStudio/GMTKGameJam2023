@@ -20,4 +20,9 @@ public class CursorIdleState : CursorBaseState
     {
         time = 0f;
     }
+
+    public override void EnterState(CursorStateManager manager, App transform)
+    {
+        throw new System.NotImplementedException();
+    }
 }

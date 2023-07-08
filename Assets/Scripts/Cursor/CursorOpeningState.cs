@@ -55,4 +55,9 @@ public class CursorOpeningState : CursorBaseState
             return null;
         }
     }
+
+    public override void EnterState(CursorStateManager manager, App transform)
+    {
+        throw new System.NotImplementedException();
+    }
 }
