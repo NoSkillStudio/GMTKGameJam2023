@@ -12,11 +12,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private bool isFasingRight = true;
 
+    private Animator animator;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _speed = _startSpeed;
         _renderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -24,6 +27,8 @@ public class PlayerController : MonoBehaviour
         CheckBoundaries();
         _axis.x = Input.GetAxisRaw("Horizontal");
         _axis.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("AxisX", Mathf.Abs(_axis.x));
 
         if ((_axis.x > 0 && !isFasingRight) || (_axis.x < 0 && isFasingRight))
         {
