@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 741564702617037840}
   m_Layer: 5
   m_Name: Files
-  m_TagString: Untagged
+  m_TagString: Files
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 1189137128104729400}
   m_Layer: 5
   m_Name: SearchText
-  m_TagString: Untagged
+  m_TagString: Search
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

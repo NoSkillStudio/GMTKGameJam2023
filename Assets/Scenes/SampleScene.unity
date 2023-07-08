@@ -1161,11 +1161,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &991096116 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1834700298596771975, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
-  m_PrefabInstance: {fileID: 6910279645996612133}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &998187596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,27 +2316,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 196675020085306380, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
   m_PrefabInstance: {fileID: 6910279645996612133}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6727397466714267184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991096116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7ab2edaa2859d4e93a3f762c2c3018, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  words:
-  - how to escape the duck.txt
-  - usbstickwritersetup.exec
-  - topsecret.txt
-  - passwords.txt
-  - otheros.iso
-  - how to install os.txt
-  - explorer.exec
-  - screenshots.zip
 --- !u!1001 &6910279645996612133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2414,11 +2388,112 @@ PrefabInstance:
       propertyPath: OnDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1941399192}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: icons.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[0]
+      value: how to escape duck.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[1]
+      value: awesomewallpaper.png
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[2]
+      value: top secret.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[3]
+      value: emails 2.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[4]
+      value: passwords.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[5]
+      value: otheros.iso
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[6]
+      value: drivers.zip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[7]
+      value: wallpaper.png
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[8]
+      value: drivers 2.zip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[9]
+      value: usb writer setup.exec
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[10]
+      value: duckos install guide.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[11]
+      value: my emails.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: filenames.Array.data[12]
+      value: duck email.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[0]
+      value: email
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[1]
+      value: top secret
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[2]
+      value: otheros
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[3]
+      value: os install guide
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[4]
+      value: escape duck
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[5]
+      value: password
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[6]
+      value: drivers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[7]
+      value: wallpaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[8]
+      value: usb writer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601013644640300083, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
+      propertyPath: searchWords.Array.data[9]
+      value: usb writer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1834700298596771975, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6727397466714267184}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b623d240b9bbf4dbce7b7b6f0cd06c, type: 3}

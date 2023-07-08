@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 1571492146217730192}
   - component: {fileID: 959979042691597708}
   - component: {fileID: 5238206573891789668}
+  - component: {fileID: 8601013644640300083}
   m_Layer: 0
   m_Name: ExplorerDesktopIcon
   m_TagString: Untagged
@@ -390,7 +391,6 @@ MonoBehaviour:
   OnOpen:
     m_PersistentCalls:
       m_Calls: []
-  window: 0
   contextMenu: {fileID: 7154456903896189005}
   OnDestroy:
     m_PersistentCalls:
@@ -525,6 +525,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8601013644640300083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834700298596771975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7ab2edaa2859d4e93a3f762c2c3018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchWords: []
+  filenames: []
+  icons: []
+  filePrefab: {fileID: 2839396353829068612, guid: b6acda7b64a758041bac4229ff194356, type: 3}
 --- !u!1 &4152818629199140033
 GameObject:
   m_ObjectHideFlags: 0

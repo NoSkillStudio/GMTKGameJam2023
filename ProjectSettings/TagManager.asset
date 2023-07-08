@@ -7,6 +7,8 @@ TagManager:
   - Windows
   - Time
   - OpenedWindows
+  - Files
+  - Search
   layers:
   - Default
   - TransparentFX
