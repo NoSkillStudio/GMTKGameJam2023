@@ -9,7 +9,14 @@ public class App : MonoBehaviour
 	[SerializeField] private WindowSpawner.Window window;
 	private WindowSpawner spawner;
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	[SerializeField] private GameObject contextMenu;
+
+    private void Start()
+    {
+        spawner = FindObjectOfType<WindowSpawner>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.TryGetComponent(out Trash trash))
 		{ 
@@ -21,5 +28,15 @@ public class App : MonoBehaviour
 	{ 
 		OnOpen?.Invoke();
 		spawner.OpenWindow(window);
+	}
+
+	public void ShowContextMenu()
+	{ 
+		contextMenu.SetActive(true);
+    }
+
+	public void HideContextMenu()
+	{
+		contextMenu.SetActive(false);
 	}
 }
