@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +6,11 @@ public class App : MonoBehaviour
 	[SerializeField] private UnityEvent OnOpen;
 	[SerializeField] private WindowSpawner.Window window;
 	private WindowSpawner spawner;
+
+	private void Start()
+	{
+		spawner = FindObjectOfType<WindowSpawner>();
+	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -18,7 +21,7 @@ public class App : MonoBehaviour
 	}
 
 	public void Open()
-	{ 
+	{
 		OnOpen?.Invoke();
 		spawner.OpenWindow(window);
 	}
