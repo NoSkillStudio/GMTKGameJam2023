@@ -24,10 +24,10 @@ public class UIEffectSettings : MonoBehaviour
 
     public void ToggleEffect()
     {
-        if (toggleEffect.isOn == false)
-            volume = -80f;
+        if (toggleEffect.isOn == true)
+            volume = 1;
         else
-            volume = 0f;
+            volume = 0.0001f;
         sliderVolumeEffect.value = volume;
         Save();
         ValueEffect();
@@ -35,8 +35,14 @@ public class UIEffectSettings : MonoBehaviour
 
     public void ValueEffect()
     {
-        effectMixer.SetFloat("EffectVolume", volume);
-        toggleEffect.isOn = volume > -80f;
+        if (volume <= 0.0001f)
+        {
+            toggleEffect.isOn = false;
+            volume = 0.0001f;
+        }               
+        else
+            toggleEffect.isOn = true;
+        effectMixer.SetFloat("EffectVolume", (float)Math.Log10(volume) * 20f);
     }
 
     private void Save()
