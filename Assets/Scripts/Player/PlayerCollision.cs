@@ -10,6 +10,7 @@ public class PlayerCollision : MonoBehaviour
     private App currentApp;
     private float offset = 1.25f;
     private float x = 0f;
+    private bool canPick;
 
     private void Start()
     {

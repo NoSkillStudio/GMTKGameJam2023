@@ -18,6 +18,7 @@ public class ContextMenu : MonoBehaviour
     {
         maxChoice = choices.Length - 1;
         choice = maxChoice;
+        previousChoice = choice;
     }
 
     private void OnEnable()
