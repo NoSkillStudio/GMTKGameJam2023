@@ -21,7 +21,7 @@ public class WindowSpawner : MonoBehaviour
         canvas = FindObjectOfType<Canvas>();
         taskbar = GameObject.FindWithTag("Windows");
         openedWindows = GameObject.FindWithTag("OpenedWindows");
-        OpenWindow(Window.Explorer);
+        //OpenWindow(Window.Explorer);
     }
 
     public void OpenWindow(Window window)

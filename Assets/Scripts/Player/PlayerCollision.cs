@@ -3,7 +3,9 @@ using UnityEngine.Events;
 
 public class PlayerCollision : MonoBehaviour
 {
-    [SerializeField] private UnityEvent OnCollidedApp;
+    [SerializeField] private UnityEvent OnTriggerEnterApp;
+    [SerializeField] private UnityEvent OnTriggerExitApp;
+
     private App currentApp;
     private Vector3 offset = Vector3.zero;
 
@@ -22,12 +24,30 @@ public class PlayerCollision : MonoBehaviour
             currentApp = app;
             offset = transform.position - currentApp.transform.position;
 
-            OnCollidedApp.Invoke();
+            currentApp.ShowContextMenu();
+
+            OnTriggerEnterApp.Invoke();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out App app))
+        {
+            currentApp.HideContextMenu();
+
+            OnTriggerExitApp.Invoke();
         }
     }
 
     public void OpenApp()
-    { 
+    {
         currentApp.Open();
     }
+
+    public void Grab()
+    {
+        currentApp.transform.SetParent(transform, true);
+    }
+
 }

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         time = GameObject.FindWithTag("Time").GetComponent<TMP_Text>();
     }
 
