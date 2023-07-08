@@ -11,6 +11,8 @@ public class App : MonoBehaviour
 
     private ObjectScore objectScore;
 
+	[SerializeField] private UnityEvent OnDestroy;
+
     private void Start()
     {
         spawner = FindObjectOfType<WindowSpawner>();
@@ -22,7 +24,9 @@ public class App : MonoBehaviour
 		if (collision.gameObject.TryGetComponent(out Trash trash))
 		{ 
 			objectScore.Activate();
-			Destroy(gameObject, 0.1f);
+			OnDestroy.Invoke();
+			FindObjectOfType<PlayerCollision>().DontGrab();
+			Destroy(gameObject, 0.01f);
 		}
 	}
 
