@@ -344,7 +344,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1813450601}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIEffectSettings, Assembly-CSharp
         m_MethodName: SliderEffect
         m_Mode: 1
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1813450601}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIEffectSettings, Assembly-CSharp
         m_MethodName: ToggleEffect
         m_Mode: 1
@@ -1998,7 +1998,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u0430\u0432\u0438\u043B\u0430"
+  m_text: Rules
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1813450602}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISMusicSettings, Assembly-CSharp
         m_MethodName: SliderMusic
         m_Mode: 1
@@ -2571,7 +2571,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1813450602}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UISMusicSettings, Assembly-CSharp
         m_MethodName: ToggleMusic
         m_Mode: 1
@@ -2821,9 +2821,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1813450603}
-  - component: {fileID: 1813450602}
-  - component: {fileID: 1813450601}
   - component: {fileID: 1813450604}
+  - component: {fileID: 1813450606}
+  - component: {fileID: 1813450605}
   m_Layer: 0
   m_Name: Soundmanager
   m_TagString: Untagged
@@ -2831,30 +2831,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1813450601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813450600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53fc1e7cb21115f4fb100c84a56a2aa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1813450602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813450600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af10b36d69627184f989e3a947f6f633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1813450603
 Transform:
   m_ObjectHideFlags: 0
@@ -2966,6 +2942,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1813450605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813450600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2050590fe785c274fbd9ee0ab17870d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleEffect: {fileID: 1001816718}
+  sliderVolumeEffect: {fileID: 161666812}
+  effectMixer: {fileID: 24100000, guid: 09a48ffdb04b9fb4c9f8ee40b629e9ae, type: 2}
+--- !u!114 &1813450606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813450600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9581495f6a4aa9d41a07aecb9513bde9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleMusic: {fileID: 1718954314}
+  sliderVolumeMusic: {fileID: 1594783087}
+  musicMixer: {fileID: 24100000, guid: bc1b03be8e89f6d4da5110fd22329a95, type: 2}
 --- !u!1 &1820059828
 GameObject:
   m_ObjectHideFlags: 0
