@@ -5,7 +5,7 @@ using TMPro;
 public class Charge : MonoBehaviour
 {
     [SerializeField] private Sprite[] powerSprites;
-    private TMP_Text chargeText;
+    [SerializeField] private TMP_Text chargeText;
     private float _power = 1f;
     public bool isCharging { get; private set; }
     private CursorStateManager manager;
@@ -37,7 +37,6 @@ public class Charge : MonoBehaviour
     private void Start()
     {
         icon = GetComponent<Image>(); 
-        chargeText = FindObjectOfType<ChargeText>().GetComponent<TMP_Text>();
         manager = FindObjectOfType<CursorStateManager>();
         objectScore = GetComponent<ObjectScore>();
     }

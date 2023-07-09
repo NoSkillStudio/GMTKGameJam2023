@@ -7486,6 +7486,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fc69d881322671b48a93097b83f54736, type: 3}
   - {fileID: 21300000, guid: 1b5d21ba508ae3a458dc1373475662ba, type: 3}
   - {fileID: 21300000, guid: 72951c16c47a7d54ea83c39793a9c9eb, type: 3}
+  chargeText: {fileID: 1082710045}
 --- !u!114 &1587626158
 MonoBehaviour:
   m_ObjectHideFlags: 0
