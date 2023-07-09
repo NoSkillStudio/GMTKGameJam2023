@@ -4,7 +4,14 @@ using UnityEngine.Events;
 public class App : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnOpen;
-    public WindowSpawner.Window window { get; }
+    [SerializeField] private WindowSpawner.Window _window;
+    public WindowSpawner.Window window
+    {
+        get
+        {
+            return _window;
+        }
+    }
     private WindowSpawner spawner;
 
     [SerializeField] private AudioSource trashSound;
@@ -43,7 +50,7 @@ public class App : MonoBehaviour
     public void Open()
     {
         OnOpen?.Invoke();
-        spawner.OpenWindow(window);
+        spawner.OpenWindow(_window);
     }
 
     public void ShowContextMenu()

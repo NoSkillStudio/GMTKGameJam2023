@@ -102,7 +102,6 @@ public class PlayerController : MonoBehaviour
 
     public void Stun()
     {
-        Debug.Log("Stun");
         animator.SetBool("Stun", true);
         StopSpeed();
         Invoke(nameof(SetNormalSpeed), _stunTime);
