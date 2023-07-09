@@ -392,7 +392,7 @@ MonoBehaviour:
   OnOpen:
     m_PersistentCalls:
       m_Calls: []
-  trashSound: {fileID: 4893153381985843155}
+  trashSound: {fileID: 6307349894359779629}
   contextMenu: {fileID: 7154456903896189005}
   OnDestroy:
     m_PersistentCalls:
@@ -566,7 +566,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   filePrefab: {fileID: 2839396353829068612, guid: b6acda7b64a758041bac4229ff194356, type: 3}
---- !u!82 &4893153381985843155
+--- !u!82 &6307349894359779629
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
