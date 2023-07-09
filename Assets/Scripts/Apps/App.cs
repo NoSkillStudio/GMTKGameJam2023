@@ -1,7 +1,5 @@
-using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEngine.GraphicsBuffer;
 
 public class App : MonoBehaviour
 {
@@ -19,6 +17,7 @@ public class App : MonoBehaviour
 
     public Vector3 SpawnPoint { get => spawnPoint; }
     private Vector3 spawnPoint;
+    private PlayerCollision player ;
 
 
     private void Start()
@@ -26,6 +25,7 @@ public class App : MonoBehaviour
         spawner = FindObjectOfType<WindowSpawner>();
         objectScore = GetComponent<ObjectScore>();
         spawnPoint = transform.position;
+        player = FindObjectOfType<PlayerCollision>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,7 +35,7 @@ public class App : MonoBehaviour
             trashSound.Play();
             objectScore?.Activate();
             OnDestroy?.Invoke();
-            FindObjectOfType<PlayerCollision>().DontGrab();
+            player.DontGrab();
             Destroy(gameObject, 0.01f);
         }
     }

@@ -12,11 +12,22 @@ public class WindowSpawner : MonoBehaviour
     private Canvas canvas;
     private GameObject openedWindows;
     private bool[] isSpawned = {false, false};
+    private int totalWindows = 0;
+    private Charge charge;
 
     private void Start()
     {
         canvas = FindObjectOfType<Canvas>();
         openedWindows = GameObject.FindWithTag("OpenedWindows");
+        charge = FindObjectOfType<Charge>();
+    }
+
+    private void Update()
+    {
+        if (totalWindows != 0)
+        {
+            charge.Power -= (0.00002f * totalWindows);
+        }
     }
 
     public void OpenWindow(Window window)
@@ -27,10 +38,14 @@ public class WindowSpawner : MonoBehaviour
 
         // Spawn window
         GameObject window_ = Instantiate(windows[idx], openedWindows.transform);
+        totalWindows += 1;
     }
 
     public void SetIsSpawned(Window window, bool isSpawned)
     {
         this.isSpawned[(int) window] = isSpawned;
+
+        if(!this.isSpawned[(int) window])
+            totalWindows -= 1;
     }
 }
