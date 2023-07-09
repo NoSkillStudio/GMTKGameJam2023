@@ -45,7 +45,7 @@ public class App : MonoBehaviour
     public void Open()
     {
         OnOpen?.Invoke();
-        spawner.OpenWindow(_window);
+        spawner.OpenWindow(window);
     }
 
     public void ShowContextMenu()
