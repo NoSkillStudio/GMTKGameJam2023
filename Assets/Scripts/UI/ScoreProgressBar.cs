@@ -8,6 +8,22 @@ public class ScoreProgressBar : MonoBehaviour
 
 	public void Change(int value)
 	{
-		image.fillAmount = value / scoreCollector.MaxScore;
+		if (value >= scoreCollector.MaxScore)
+		{
+			image.fillAmount = 1f;
+			StopGame();
+			return;
+		}
+		image.fillAmount = value / ((float) scoreCollector.MaxScore);
+	}
+
+	private void StopGame()
+	{
+		// stop game
+		Time.timeScale = 0f;
+		FindObjectOfType<PlayerController>().StopSpeed();
+		FindObjectOfType<CursorStateManager>().SwitchToState(ScriptableObject.CreateInstance<CursorStopState>());
+		// start animation
+		FindObjectOfType<Crack>().GetComponent<Animator>().SetTrigger("Crack");
 	}
 }

@@ -3,8 +3,8 @@ using UnityEngine.Events;
 
 public class ScoreCollector : MonoBehaviour
 {
-	public float MaxScore { get => maxScore; }
-	[SerializeField] private float maxScore;
+	public int MaxScore { get => maxScore; }
+	[SerializeField] private int maxScore;
 
 	[SerializeField] private UnityEvent<int> ScoreChanged;
 	public static int scoreCollected;
