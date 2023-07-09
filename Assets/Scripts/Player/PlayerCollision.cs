@@ -10,6 +10,7 @@ public class PlayerCollision : MonoBehaviour
     private PlayerController player;
     private App currentApp;
     private float offset = 1.25f;
+    private File currentFile;
 
     private void Start()
     {
@@ -52,7 +53,8 @@ public class PlayerCollision : MonoBehaviour
 
         if (collision.gameObject.TryGetComponent(out File file))
         {
-            print("File");
+            file.Select();
+            currentFile = file;
         }
     }
 
@@ -66,6 +68,12 @@ public class PlayerCollision : MonoBehaviour
                 OnTriggerExitApp?.Invoke();
             }
             catch {}
+        }
+
+        if (collision.gameObject.TryGetComponent(out File file))
+        {
+            file.DeSelect();
+            currentFile = null;
         }
     }
 
