@@ -4,7 +4,8 @@ using UnityEngine.Events;
 public class App : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnOpen;
-    public WindowSpawner.Window window { get; }
+    public WindowSpawner.Window Window { get => window; }
+    [SerializeField] private WindowSpawner.Window window;
     private WindowSpawner spawner;
 
     [SerializeField] private AudioSource trashSound;
@@ -26,6 +27,7 @@ public class App : MonoBehaviour
         objectScore = GetComponent<ObjectScore>();
         spawnPoint = transform.position;
         player = FindObjectOfType<PlayerCollision>();
+        Debug.Log(window);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
