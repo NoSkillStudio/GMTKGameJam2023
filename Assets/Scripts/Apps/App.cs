@@ -32,8 +32,8 @@ public class App : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Trash trash))
         {
-            trashSound.Play()
-;            objectScore?.Activate();
+            trashSound.Play();
+            objectScore?.Activate();
             OnDestroy?.Invoke();
             FindObjectOfType<PlayerCollision>().DontGrab();
             Destroy(gameObject, 0.01f);

@@ -3,8 +3,8 @@ using UnityEngine.Events;
 
 public class PlayerCollision : MonoBehaviour
 {
-    [SerializeField] private UnityEvent OnTriggerEnterApp;
-    [SerializeField] private UnityEvent OnTriggerExitApp;
+    [SerializeField] private AudioSource grabSound;
+
     private CursorStateManager manager;
     public bool isGrabbed { get; private set; }
     private PlayerController player;
@@ -12,6 +12,10 @@ public class PlayerCollision : MonoBehaviour
     private float offset = 1.25f;
     private File currentFile;
     private Animator animator;
+
+    [SerializeField] private UnityEvent OnTriggerEnterApp;
+    [SerializeField] private UnityEvent OnTriggerExitApp;
+
 
     private void Start()
     {
@@ -87,6 +91,7 @@ public class PlayerCollision : MonoBehaviour
     public void Grab()
     {
         animator.SetTrigger("Grab");
+        grabSound.Play();
         manager.SwitchToState(ScriptableObject.CreateInstance<CursorAgroState>());
         isGrabbed = true;
     }
