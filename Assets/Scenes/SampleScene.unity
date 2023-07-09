@@ -10699,9 +10699,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   choices:
-  - {fileID: 302660292}
-  - {fileID: 546148248}
-  - {fileID: 243108899}
+  - {fileID: 2371908217772934596}
+  - {fileID: 7282165376468534}
+  - {fileID: 7469845615395341500}
   rightUpPos: {x: 0.75, y: 1.15, z: 0}
   leftUpPos: {x: -2.5, y: 1.15, z: 0}
   rightDownPos: {x: 0.75, y: -2.8, z: 0}
