@@ -34,9 +34,12 @@ public class UISMusicSettings : MonoBehaviour
 
 	public void ValueMusic()
 	{
-		musicMixer.SetFloat("MusicVolume", volume);
+		musicMixer.SetFloat("MusicVolume", volume / 5);
 		toggleMusic.isOn = volume > -80f;
-	}
+
+		if(volume == -80f)
+            musicMixer.SetFloat("MusicVolume", -80f);
+    }
 
 	private void Save()
 	{

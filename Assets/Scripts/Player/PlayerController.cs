@@ -55,10 +55,13 @@ public class PlayerController : MonoBehaviour
         if (_axis == new Vector2(0, 0) && isRunSounded == true)
         {
             isRunSounded = false;
-            runSound.Stop();
+            runSound.Pause();
         }
         else
+        { 
             isRunSounded = true;
+            runSound.UnPause();
+        }
         
             
     }

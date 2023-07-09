@@ -34,8 +34,11 @@ public class UIEffectSettings : MonoBehaviour
 
     public void ValueEffect()
     {
-        effectMixer.SetFloat("EffectVolume", volume);
+        effectMixer.SetFloat("EffectVolume", volume/5);
         toggleEffect.isOn = volume > -80f;
+
+        if (volume == -80f)
+            effectMixer.SetFloat("EffectVolume", -80f);
     }
 
     private void Save()
