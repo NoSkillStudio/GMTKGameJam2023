@@ -15,7 +15,13 @@ public class WindowSpawner : MonoBehaviour
     }
 
     [SerializeField] private GameObject[] windows;
-    private Canvas canvas;
+    public GameObject[] Windows
+    {
+        get
+        {
+            return windows;
+        }
+    }
     private GameObject openedWindows;
     private bool[] isSpawned = {false, false, false, false, false, false };
     private int totalWindows = 0;
@@ -23,7 +29,6 @@ public class WindowSpawner : MonoBehaviour
 
     private void Start()
     {
-        canvas = FindObjectOfType<Canvas>();
         openedWindows = GameObject.FindWithTag("OpenedWindows");
         charge = FindObjectOfType<Charge>();
     }
