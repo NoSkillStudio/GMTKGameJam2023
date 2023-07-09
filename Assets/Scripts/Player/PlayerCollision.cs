@@ -39,15 +39,20 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!player.isStunned &&
-            collision.gameObject.TryGetComponent(out App app) &&
-            isGrabbed == false)
+        if (player.isStunned || isGrabbed) return;
+
+        if (collision.gameObject.TryGetComponent(out App app))
         {
             currentApp = app;
 
             currentApp.ShowContextMenu();
 
             OnTriggerEnterApp?.Invoke();
+        }
+
+        if (collision.gameObject.TryGetComponent(out File file))
+        {
+            print("File");
         }
     }
 

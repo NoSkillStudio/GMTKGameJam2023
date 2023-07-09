@@ -18,6 +18,7 @@ public class Explorer : MonoBehaviour
 
     private IEnumerator Search()
     {
+        yield return new WaitForSeconds(1f);
         GameObject files = GameObject.FindWithTag("Files");
         TMP_Text search = GameObject.FindWithTag("Search").GetComponent<TMP_Text>();
 
@@ -25,7 +26,6 @@ public class Explorer : MonoBehaviour
         string word = searchWords[idx];
 
         // type word
-        yield return new WaitForSeconds(1f);
         search.color = Color.white;
         search.text = "";
 
