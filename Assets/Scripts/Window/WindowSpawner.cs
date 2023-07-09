@@ -23,7 +23,7 @@ public class WindowSpawner : MonoBehaviour
         }
     }
     private GameObject openedWindows;
-    private bool[] isSpawned = {false, false, false, false, false, false };
+    private bool[] isSpawned = {false, false, false, false, false, false, false };
     private int totalWindows = 0;
     private Charge charge;
 

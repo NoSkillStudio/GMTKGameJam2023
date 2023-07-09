@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,9 +13,11 @@ public class AppWindow : MonoBehaviour
 	[SerializeField] private TMP_Text nameText;
 	[SerializeField] Image icon;
 	[SerializeField] Sprite[] icons;
+
+    private CursorStateManager manager;
     private void Start()
 	{
-		switch (window)
+        switch (window)
 		{
 			case WindowSpawner.Window.Browser:
 				nameText.text = WindowSpawner.Window.Browser.ToString();
@@ -44,6 +47,12 @@ public class AppWindow : MonoBehaviour
 				break;
 		}
 	}
+
+	public void InvokeDelete()
+	{
+		Destroy(gameObject, 5f);
+	}
+
 
 	private void Update()
 	{
