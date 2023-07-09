@@ -26,7 +26,6 @@ public class Explorer : MonoBehaviour
         string word = searchWords[idx];
 
         // type word
-        search.color = Color.white;
         search.text = "";
 
         while (search.text != word)

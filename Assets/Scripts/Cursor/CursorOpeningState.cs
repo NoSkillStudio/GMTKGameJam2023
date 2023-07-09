@@ -38,7 +38,7 @@ public class CursorOpeningState : CursorBaseState
         {
             clickSound.Play();
             target.Open();
-            if (target.window == WindowSpawner.Window.Explorer/* && Random.Range(0, 2) == 0*/)
+            if (target.Window == WindowSpawner.Window.Explorer/* && Random.Range(0, 2) == 0*/)
             {
                 manager.SwitchToState(
                     ScriptableObject.CreateInstance<CursorSearchingState>(),

@@ -1,11 +1,17 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WindowSpawner : MonoBehaviour
 {
     public enum Window
     {
-        Explorer = 0,
-        Browser = 1
+        Explorer,
+        Browser,
+        MyCat,
+        vNovell,
+        Matryoshka,
+        Cards,
+        EyeHorror
     }
 
     [SerializeField] private GameObject[] windows;
@@ -17,7 +23,7 @@ public class WindowSpawner : MonoBehaviour
         }
     }
     private GameObject openedWindows;
-    private bool[] isSpawned = {false, false};
+    private bool[] isSpawned = {false, false, false, false, false, false };
     private int totalWindows = 0;
     private Charge charge;
 
@@ -37,12 +43,21 @@ public class WindowSpawner : MonoBehaviour
 
     public void OpenWindow(Window window)
     {
+        Debug.Log((int)window);
         int idx = (int) window;
         if (isSpawned[idx]) return;
         isSpawned[idx] = true;
 
         // Spawn window
         GameObject window_ = Instantiate(windows[idx], openedWindows.transform);
+        try
+        {
+            window_.GetComponent<AppWindow>().Window = window;
+        }
+        catch 
+        {
+            Debug.Log("It is Explorer");
+        }
         totalWindows += 1;
     }
 

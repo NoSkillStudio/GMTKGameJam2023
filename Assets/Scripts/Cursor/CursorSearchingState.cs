@@ -10,9 +10,17 @@ public class CursorSearchingState : CursorBaseState
 
     public override void EnterState(CursorStateManager manager, App app)
     {
-        Explorer explorer = app.GetComponent<Explorer>();
-        explorer.StartSearch();
-        manager.SwitchToState(ScriptableObject.CreateInstance<CursorIdleState>());
+        try
+        {
+            Explorer explorer = app.GetComponent<Explorer>();
+            explorer.StartSearch();
+            manager.SwitchToState(ScriptableObject.CreateInstance<CursorIdleState>());
+        }
+        catch 
+        {
+            Debug.Log("Not Explorer");
+        }
+
     }
 
     public override void UpdateState(CursorStateManager manager)
