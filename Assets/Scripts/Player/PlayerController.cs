@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float offset;
 
+    [SerializeField] private AudioSource runSound;
+    private bool isRunSounded = true;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -43,6 +46,17 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("AxisX", Mathf.Abs(_axis.x));
         if(Mathf.Abs(_axis.x) == 0)
         animator.SetFloat("AxisX", Mathf.Abs(_axis.y));
+
+        if (_axis == new Vector2(0, 0) && isRunSounded == true)
+        {
+            isRunSounded = false;
+            runSound.Stop();
+            Debug.Log("runSound");
+        }
+        else
+            isRunSounded = true;
+        
+            
     }
 
     private void FixedUpdate()

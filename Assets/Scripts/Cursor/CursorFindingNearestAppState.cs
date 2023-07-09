@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class CursorFindingNearestAppState : CursorBaseState
@@ -13,6 +10,10 @@ public class CursorFindingNearestAppState : CursorBaseState
     private float currentDistance;
 
     private float speed = 4f;
+
+    private float timer = 2f;
+    private float time = 0f;
+
     public override void EnterState(CursorStateManager manager)
     {
         apps = Object.FindObjectsOfType<App>();
@@ -21,6 +22,7 @@ public class CursorFindingNearestAppState : CursorBaseState
         {
             manager.SwitchToState(ScriptableObject.CreateInstance<CursorIdleState>());
         }
+        clickSound = manager.GetComponent<AudioSource>();
     }
     public override void UpdateState(CursorStateManager manager)
     {
@@ -28,7 +30,7 @@ public class CursorFindingNearestAppState : CursorBaseState
         {
             manager.SetPos(Vector2.MoveTowards(
                 manager.cursor.transform.position,
-                target.GetComponent<Transform>().position,
+                target.transform.position,
                 speed * Time.deltaTime
             ));
         }
@@ -41,7 +43,13 @@ public class CursorFindingNearestAppState : CursorBaseState
 
         if (Vector3.Distance(manager.cursorTransform.position, target.transform.position) <= 0.25f)
         {
-            manager.SwitchToState(ScriptableObject.CreateInstance<CursorReturnState>(), target);
+            time += Time.deltaTime;
+            if (time >= timer)
+            {
+                clickSound.Play();
+                target.transform.SetParent(manager.gameObject.transform, true);
+                manager.SwitchToState(ScriptableObject.CreateInstance<CursorReturnState>(), target);
+            }
         }
     }
 
