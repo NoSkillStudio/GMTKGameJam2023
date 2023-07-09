@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 6207569545960366559}
   - component: {fileID: 5630063856710784677}
   - component: {fileID: 7143405065834763373}
+  - component: {fileID: 1713547206648825948}
   m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -546,7 +547,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6422645210236978827}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8959554011909952483}
+        m_TargetAssemblyTypeName: AppWindow, Assembly-CSharp
+        m_MethodName: InvokeDelete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1713547206648825948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715020763992795527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d42515e602a0f241a19935a38ec7e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 10
 --- !u!1 &5193227816206175015
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5136523417198796139
 RectTransform:
   m_ObjectHideFlags: 0

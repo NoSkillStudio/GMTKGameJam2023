@@ -9,6 +9,7 @@ public class ObjectScore : MonoBehaviour
 
     public void Activate()
     {
+        Debug.Log("Score");
         OnChanged?.Invoke(score);
     }
 }

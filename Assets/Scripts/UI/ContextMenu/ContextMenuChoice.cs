@@ -10,7 +10,8 @@ public class ContextMenuChoice : MonoBehaviour
 	private bool canPress;
 
 	[SerializeField] private UnityEvent OnPressed;
-	
+	private CursorStateManager manager;
+
 	private void Start()
 	{
 		image = GetComponent<Image>();
@@ -39,5 +40,11 @@ public class ContextMenuChoice : MonoBehaviour
 	{
         image.DOColor(new Color(0.6980392f, 0.5450981f, 0.7411765f), 0.3f);
 		canPress = false;
+    }
+
+	public void OpenChoice()
+	{
+        manager = FindObjectOfType<CursorStateManager>();
+        manager.SwitchToState(ScriptableObject.CreateInstance<CursorAgroState>());
     }
 }
