@@ -94,10 +94,16 @@ public class PlayerController : MonoBehaviour
     }
     public void StopSpeed() => _speed = 0;
 
-    public void SetNormalSpeed() => _speed = _startSpeed;
+    public void SetNormalSpeed() 
+    {
+        animator.SetBool("Stun", false);
+        _speed = _startSpeed;
+    }
 
     public void Stun()
     {
+        Debug.Log("Stun");
+        animator.SetBool("Stun", true);
         StopSpeed();
         Invoke(nameof(SetNormalSpeed), _stunTime);
     }
