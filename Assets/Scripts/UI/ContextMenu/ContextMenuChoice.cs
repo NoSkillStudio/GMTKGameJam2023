@@ -31,13 +31,13 @@ public class ContextMenuChoice : MonoBehaviour
 
 	public void Enter()
 	{
-		image.DOColor(new Color(0.4622642f, 0.1718227f, 0.3876553f), 0.3f);
+		image.DOColor(new Color(0.4793991f, 0.3060164f, 0.5283019f), 0.3f);
 		canPress = true;
 	}
 
 	public void Exit()
 	{
-        image.DOColor(new Color(0.6705883f, 0.2431373f, 0.5607843f), 0.3f);
+        image.DOColor(new Color(0.6980392f, 0.5450981f, 0.7411765f), 0.3f);
 		canPress = false;
     }
 }

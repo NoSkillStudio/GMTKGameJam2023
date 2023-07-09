@@ -4,7 +4,7 @@ public class CursorAgroState : CursorBaseState
 {
     private PlayerCollision player;
     private PlayerController playerController;
-    private float speed = 4f;
+    private float speed = 3f;
 
     public override void EnterState(CursorStateManager manager)
     {

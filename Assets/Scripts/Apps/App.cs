@@ -9,6 +9,8 @@ public class App : MonoBehaviour
     public WindowSpawner.Window window { get; }
     private WindowSpawner spawner;
 
+    [SerializeField] private AudioSource trashSound;
+
     [SerializeField] private GameObject contextMenu;
 
     private ObjectScore objectScore;
@@ -17,6 +19,7 @@ public class App : MonoBehaviour
 
     public Vector3 SpawnPoint { get => spawnPoint; }
     private Vector3 spawnPoint;
+
 
     private void Start()
     {
@@ -29,7 +32,8 @@ public class App : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Trash trash))
         {
-            objectScore?.Activate();
+            trashSound.Play()
+;            objectScore?.Activate();
             OnDestroy?.Invoke();
             FindObjectOfType<PlayerCollision>().DontGrab();
             Destroy(gameObject, 0.01f);
