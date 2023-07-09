@@ -20,7 +20,6 @@ public class ScoreProgressBar : MonoBehaviour
 	private void StopGame()
 	{
 		// stop game
-		Time.timeScale = 0f;
 		FindObjectOfType<PlayerController>().StopSpeed();
 		FindObjectOfType<CursorStateManager>().SwitchToState(ScriptableObject.CreateInstance<CursorStopState>());
 		// start animation

@@ -13,6 +13,13 @@ public class LevelManager : MonoBehaviour
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.Escape) && sceneIndex != 0)
+        {
+            LoadMenu();
+        }
+    }
     public void ReloadScene()
     {
         SceneManager.LoadScene(sceneIndex);
@@ -26,6 +33,8 @@ public class LevelManager : MonoBehaviour
 
     public void LoadMenu()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1f;
     }
