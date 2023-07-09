@@ -40,8 +40,10 @@ public class CursorOpeningState : CursorBaseState
             target.Open();
             if (target.window == WindowSpawner.Window.Explorer/* && Random.Range(0, 2) == 0*/)
             {
-                Explorer explorer = target.GetComponent<Explorer>();
-                explorer.StartSearch();
+                manager.SwitchToState(
+                    ScriptableObject.CreateInstance<CursorSearchingState>(),
+                    target.GetComponent<App>()
+                );
             }
 
             manager.SwitchToState(ScriptableObject.CreateInstance<CursorIdleState>());

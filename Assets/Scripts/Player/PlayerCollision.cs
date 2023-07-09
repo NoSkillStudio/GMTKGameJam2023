@@ -32,21 +32,22 @@ public class PlayerCollision : MonoBehaviour
         catch (MissingReferenceException)
         {
             // утка выбросила в корзину приложение
-            isGrabbed = false;
-            currentApp = null;
+            DontGrab();
             manager.SwitchToState(ScriptableObject.CreateInstance<CursorAgroState>());
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out App app) && isGrabbed == false)
+        if (!player.isStunned &&
+            collision.gameObject.TryGetComponent(out App app) &&
+            isGrabbed == false)
         {
             currentApp = app;
 
             currentApp.ShowContextMenu();
 
-            OnTriggerEnterApp.Invoke();
+            OnTriggerEnterApp?.Invoke();
         }
     }
 
@@ -54,9 +55,12 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out App app))
         {
-            currentApp.HideContextMenu();
-
-            OnTriggerExitApp.Invoke();
+            try
+            {
+                currentApp.HideContextMenu();
+                OnTriggerExitApp?.Invoke();
+            }
+            catch {}
         }
     }
 
@@ -71,5 +75,14 @@ public class PlayerCollision : MonoBehaviour
         isGrabbed = true;
     }
 
-    public void DontGrab() => isGrabbed = false;
+    public void DontGrab()
+    {
+        try
+        {
+            currentApp.HideContextMenu();
+        }
+        catch {}
+        isGrabbed = false;
+        currentApp = null;
+    }
 }

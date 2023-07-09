@@ -34,4 +34,9 @@ public class WindowSpawner : MonoBehaviour
         // Spawn window
         GameObject window_ = Instantiate(windows[idx], openedWindows.transform);
     }
+
+    public void SetIsSpawned(Window window, bool isSpawned)
+    {
+        this.isSpawned[(int) window] = isSpawned;
+    }
 }
