@@ -11,10 +11,13 @@ public class PlayerCollision : MonoBehaviour
     private App currentApp;
     private float offset = 1.25f;
 
+    private Animator animator;
+
     private void Start()
     {
         player = GetComponent<PlayerController>();
         manager = FindObjectOfType<CursorStateManager>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -39,9 +42,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!player.isStunned &&
-            collision.gameObject.TryGetComponent(out App app) &&
-            isGrabbed == false)
+        if (!player.isStunned && collision.gameObject.TryGetComponent(out App app) && isGrabbed == false)
         {
             currentApp = app;
 
@@ -71,6 +72,7 @@ public class PlayerCollision : MonoBehaviour
 
     public void Grab()
     {
+        animator.SetTrigger("Grab");
         manager.SwitchToState(ScriptableObject.CreateInstance<CursorAgroState>());
         isGrabbed = true;
     }
