@@ -27,7 +27,6 @@ public class App : MonoBehaviour
         objectScore = GetComponent<ObjectScore>();
         spawnPoint = transform.position;
         player = FindObjectOfType<PlayerCollision>();
-        Debug.Log(window);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

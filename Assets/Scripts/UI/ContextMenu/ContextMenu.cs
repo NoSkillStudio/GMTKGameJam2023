@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,14 @@ public class ContextMenu : MonoBehaviour
 {
     [SerializeField] private UnityEvent OnChosenOpen;
     [SerializeField] private ContextMenuChoice[] choices;
+
+    private RectTransform rectTransform;
+    [SerializeField] private Vector3 rightUpPos;
+    [SerializeField] private Vector3 leftUpPos;
+    [SerializeField] private Vector3 rightDownPos;
+    [SerializeField] private Vector3 leftDownPos;
+
+    [SerializeField] private App app;
 
     private int maxChoice;
     private int choice;
@@ -19,6 +28,21 @@ public class ContextMenu : MonoBehaviour
         maxChoice = choices.Length - 1;
         choice = maxChoice;
         previousChoice = choice;
+        rectTransform = GetComponent<RectTransform>();
+
+
+        if (app.transform.position.x < 0 && app.transform.position.y < 0)
+            rectTransform.localPosition = rightUpPos;
+        if (app.transform.position.x < 0 && app.transform.position.y > 0)
+        { 
+            rectTransform.localPosition = rightDownPos;
+            Debug.Log(app.transform.position);
+        }    
+        if (app.transform.position.x > 0 && app.transform.position.y > 0)
+            rectTransform.localPosition = leftDownPos;
+        if (app.transform.position.x > 0 && app.transform.position.y < 0)
+            rectTransform.localPosition = leftUpPos;
+
     }
 
     private void OnEnable()
@@ -38,7 +62,7 @@ public class ContextMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
             choice++;
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
             choice--;
 
         if (choice <= 0)
