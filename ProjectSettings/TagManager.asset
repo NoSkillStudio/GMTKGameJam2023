@@ -4,11 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Windows
   - Time
-  - OpenedWindows
   - Files
   - Search
+  - OpenedWindows
   layers:
   - Default
   - TransparentFX
@@ -16,8 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Cursor
   - 
   - 
   - 

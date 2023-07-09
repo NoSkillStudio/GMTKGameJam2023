@@ -9,16 +9,13 @@ public class WindowSpawner : MonoBehaviour
     }
 
     [SerializeField] private GameObject[] windows;
-    [SerializeField] private GameObject[] icons;
     private Canvas canvas;
-    private GameObject taskbar;
     private GameObject openedWindows;
     private bool[] isSpawned = {false, false};
 
     private void Start()
     {
         canvas = FindObjectOfType<Canvas>();
-        taskbar = GameObject.FindWithTag("Windows");
         openedWindows = GameObject.FindWithTag("OpenedWindows");
     }
 
@@ -27,9 +24,6 @@ public class WindowSpawner : MonoBehaviour
         int idx = (int) window;
         if (isSpawned[idx]) return;
         isSpawned[idx] = true;
-
-        // Add icon to taskbar
-        GameObject icon = Instantiate(icons[idx], taskbar.transform);
 
         // Spawn window
         GameObject window_ = Instantiate(windows[idx], openedWindows.transform);
