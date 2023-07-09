@@ -6,9 +6,6 @@ public class CursorAgroState : CursorBaseState
     private PlayerController playerController;
     private float speed = 4f;
 
-    private float timer = 2f;
-    private float time = 0f;
-
     public override void EnterState(CursorStateManager manager)
     {
         player = FindObjectOfType<PlayerCollision>();
@@ -27,12 +24,8 @@ public class CursorAgroState : CursorBaseState
         if (Vector3.Distance(manager.cursorTransform.position, player.transform.position) <= 0.5f)
         {
             playerController.Stun();
-            time += Time.deltaTime;
-            if (time >= timer)
-            {
-                clickSound.Play();
-                manager.SwitchToState(ScriptableObject.CreateInstance<CursorFindingNearestAppState>());
-            }
+            clickSound.Play();
+            manager.SwitchToState(ScriptableObject.CreateInstance<CursorFindingNearestAppState>());
         }
     }
 

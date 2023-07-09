@@ -22,36 +22,17 @@ public class App : MonoBehaviour
     {
         spawner = FindObjectOfType<WindowSpawner>();
         objectScore = GetComponent<ObjectScore>();
-
         spawnPoint = transform.position;
-        Debug.Log(spawnPoint);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Trash trash))
         {
-            objectScore.Activate();
-            OnDestroy.Invoke();
+            objectScore?.Activate();
+            OnDestroy?.Invoke();
             FindObjectOfType<PlayerCollision>().DontGrab();
             Destroy(gameObject, 0.01f);
-        }
-
-        //if (collision.gameObject.TryGetComponent(out CursorStateManager cursor))
-        //{
-        //    //Debug.Log(transform.position);
-        //    //Debug.Log(cursor.transform.position);
-        //    Debug.Log(Vector3.Distance(transform.position, cursor.cursorTransform.position));
-        //    if (Vector3.Distance(transform.position, cursor.cursorTransform.position) <= 0.75f)            
-        //        transform.SetParent(cursor.gameObject.transform, true);
-        //}
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out CursorStateManager cursor))
-        {
-
         }
     }
 

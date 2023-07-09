@@ -4,15 +4,10 @@ public class CursorFindingNearestAppState : CursorBaseState
 {
     private App[] apps;
     private App target;
-
     private App nearestApp;
     private float nearestAppDistance;
     private float currentDistance;
-
     private float speed = 4f;
-
-    private float timer = 2f;
-    private float time = 0f;
 
     public override void EnterState(CursorStateManager manager)
     {
@@ -21,9 +16,11 @@ public class CursorFindingNearestAppState : CursorBaseState
         if (target == null)
         {
             manager.SwitchToState(ScriptableObject.CreateInstance<CursorIdleState>());
+            return;
         }
         clickSound = manager.GetComponent<AudioSource>();
     }
+
     public override void UpdateState(CursorStateManager manager)
     {
         try
@@ -36,20 +33,15 @@ public class CursorFindingNearestAppState : CursorBaseState
         }
         catch
         {
-            // утка выбросила в корзину приложение
+            // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             manager.SwitchToState(ScriptableObject.CreateInstance<CursorAgroState>());
             return;
         }
 
         if (Vector3.Distance(manager.cursorTransform.position, target.transform.position) <= 0.25f)
         {
-            time += Time.deltaTime;
-            if (time >= timer)
-            {
-                clickSound.Play();
-                target.transform.SetParent(manager.gameObject.transform, true);
-                manager.SwitchToState(ScriptableObject.CreateInstance<CursorReturnState>(), target);
-            }
+            clickSound.Play();
+            manager.SwitchToState(ScriptableObject.CreateInstance<CursorReturnState>(), target);
         }
     }
 
@@ -60,9 +52,6 @@ public class CursorFindingNearestAppState : CursorBaseState
 
     private App Choice(App[] apps, CursorStateManager cursorStateManager)
     {
-        //try
-        //{
-        //    //return apps[idx];
         nearestApp = null;
         nearestAppDistance = Mathf.Infinity;
 
@@ -78,13 +67,6 @@ public class CursorFindingNearestAppState : CursorBaseState
         }
 
         return nearestApp;
-        //}
-        //catch
-        //{
-        //    Debug.Log("null");
-        //    return null;
-        //}
-
     }
 
     public override void EnterState(CursorStateManager manager, App transform)

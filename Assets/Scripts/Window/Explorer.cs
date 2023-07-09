@@ -48,8 +48,17 @@ public class Explorer : MonoBehaviour
                 GameObject file = Instantiate(filePrefab, files.transform);
                 file.GetComponent<Image>().sprite = icons[idx];
                 file.GetComponentInChildren<TMP_Text>().text = filename;
+                yield return new WaitForSeconds(0.2f);
             }
         }
+
+        // close explorer
+        yield return new WaitForSeconds(1f);
+        Destroy(FindObjectOfType<ExplorerWindow>().gameObject);
+        FindObjectOfType<WindowSpawner>().SetIsSpawned(
+            WindowSpawner.Window.Explorer,
+            false
+        );
     }
 
     private int ChoiceIdx(string[] strings)

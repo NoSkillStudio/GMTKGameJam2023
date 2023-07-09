@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -24,10 +23,10 @@ public class UISMusicSettings : MonoBehaviour
 
 	public void ToggleMusic()
 	{
-		if (toggleMusic.isOn == true)  
-			volume = 1;
+		if (toggleMusic.isOn == false)  
+			volume = -80f;
 		else
-			volume = 0.0001f;
+			volume = 0f;
 		sliderVolumeMusic.value = volume;
 		Save();
         ValueMusic();
@@ -35,14 +34,8 @@ public class UISMusicSettings : MonoBehaviour
 
 	public void ValueMusic()
 	{
-		if (volume <= 0.0001f)
-		{
-			volume = 0.0001f;
-			toggleMusic.isOn = false;
-		}
-		else
-			toggleMusic.isOn = true;
-		musicMixer.SetFloat("MusicVolume", (float)Math.Log10(volume) * 20f);
+		musicMixer.SetFloat("MusicVolume", volume);
+		toggleMusic.isOn = volume > -80f;
 	}
 
 	private void Save()

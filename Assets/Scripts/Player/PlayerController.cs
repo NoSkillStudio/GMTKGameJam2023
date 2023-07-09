@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private AudioSource runSound;
     private bool isRunSounded = true;
+    public bool isStunned {
+        get {
+            return _speed == 0;
+        }
+    }
 
     private void Start()
     {
@@ -45,13 +50,12 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("AxisX", Mathf.Abs(_axis.x));
         if(Mathf.Abs(_axis.x) == 0)
-        animator.SetFloat("AxisX", Mathf.Abs(_axis.y));
+            animator.SetFloat("AxisX", Mathf.Abs(_axis.y));
 
         if (_axis == new Vector2(0, 0) && isRunSounded == true)
         {
             isRunSounded = false;
             runSound.Stop();
-            Debug.Log("runSound");
         }
         else
             isRunSounded = true;
